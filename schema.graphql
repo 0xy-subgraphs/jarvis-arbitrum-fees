@@ -1,137 +1,18 @@
-type ActivatedLP @entity(immutable: true) {
+type PoolAccumulatedFees @entity(immutable: false) {
   id: Bytes!
-  lp: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  totalPoolFeesNative: BigInt! # uint256
+  totalPoolFeesUsd: BigInt! # uint256
 }
 
-type DepositedLiquidity @entity(immutable: true) {
-  id: Bytes!
-  lp: Bytes! # address
-  collateralSent: BigInt! # uint256
-  collateralDeposited: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+type GlobalFees @entity(immutable: false) {
+  id: String!
+  totalJarvisFeesUsd: BigInt! # uint256
+  totalPoolFeesUsd: BigInt! # uint256
+  totalCreditLineFeesUsd: BigInt! # uint256
 }
 
-type Liquidated @entity(immutable: true) {
+type CreditLineAccumulatedFees @entity(immutable: false) {
   id: Bytes!
-  user: Bytes! # address
-  lp: Bytes! # address
-  synthTokensInLiquidation: BigInt! # uint256
-  collateralAmount: BigInt! # uint256
-  bonusAmount: BigInt! # uint256
-  collateralReceived: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type Minted @entity(immutable: true) {
-  id: Bytes!
-  user: Bytes! # address
-  mintvalues_totalCollateral: BigInt! # uint256
-  mintvalues_exchangeAmount: BigInt! # uint256
-  mintvalues_feeAmount: BigInt! # uint256
-  mintvalues_numTokens: BigInt! # uint256
-  recipient: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type NewLendingModule @entity(immutable: true) {
-  id: Bytes!
-  lendingModuleId: String! # string
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type Redeemed @entity(immutable: true) {
-  id: Bytes!
-  user: Bytes! # address
-  redeemvalues_numTokens: BigInt! # uint256
-  redeemvalues_exchangeAmount: BigInt! # uint256
-  redeemvalues_feeAmount: BigInt! # uint256
-  redeemvalues_collateralAmount: BigInt! # uint256
-  recipient: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RegisteredLp @entity(immutable: true) {
-  id: Bytes!
-  lp: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RoleAdminChanged @entity(immutable: true) {
-  id: Bytes!
-  role: Bytes! # bytes32
-  previousAdminRole: Bytes! # bytes32
-  newAdminRole: Bytes! # bytes32
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RoleGranted @entity(immutable: true) {
-  id: Bytes!
-  role: Bytes! # bytes32
-  account: Bytes! # address
-  sender: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type RoleRevoked @entity(immutable: true) {
-  id: Bytes!
-  role: Bytes! # bytes32
-  account: Bytes! # address
-  sender: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type SetFeePercentage @entity(immutable: true) {
-  id: Bytes!
-  newFee: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type SetLiquidationReward @entity(immutable: true) {
-  id: Bytes!
-  newLiquidationReward: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type SetOvercollateralization @entity(immutable: true) {
-  id: Bytes!
-  lp: Bytes! # address
-  overCollateralization: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
-type WithdrawnLiquidity @entity(immutable: true) {
-  id: Bytes!
-  lp: Bytes! # address
-  collateralWithdrawn: BigInt! # uint256
-  collateralReceived: BigInt! # uint256
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
+  totalCreditLineFeesNative: BigInt! # uint256
+  totalCreditLineFeesUsd: BigInt! # uin256
 }

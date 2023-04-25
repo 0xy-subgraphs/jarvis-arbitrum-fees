@@ -2,6 +2,9 @@
   "arbitrum-one": {
     "SynthereumPoolEurUsd": {
       "address": "0xDb97f7a816E91a94eF936145E1b9faee14b8c25c"
+    },
+    "SynthereumPriceFeed": {
+      "address": "0x1505319B24538d05EC26794A602E316fA314876A"
     }
   }
 }
